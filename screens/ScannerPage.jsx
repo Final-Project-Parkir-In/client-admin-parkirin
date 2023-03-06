@@ -18,9 +18,9 @@ export default function ScannerPage({ navigation }) {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    // () => navigation.navigate("Customer Ticket Info")
+    navigation.navigate("Customer Ticket Info", data)
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    console.log(data);
+    // console.log(data);
   };
 
   if (hasPermission === null) {
@@ -39,7 +39,7 @@ export default function ScannerPage({ navigation }) {
         <View className="h-[50vh] justify-center items-center">
           <View className="h-96 w-96">
             <BarCodeScanner
-              onBarCodeScanned={scanned ? undefined : () => navigation.navigate("Customer Ticket Info") }
+              onBarCodeScanned={scanned ? undefined : handleBarCodeScanned }
               style={StyleSheet.absoluteFillObject}
             />
           </View>
