@@ -1,11 +1,23 @@
 import { View, Text, ScrollView } from "react-native";
 import { Button } from "react-native-paper";
-import React from "react";
+import axios from "axios";
 import SpecifiedView from "../components/SpecifiedView";
 
 export default function TicketInfo({ route: { params } }) {
   console.log(params, "<<< ini udah diterima ticket info");
   const detailUser = JSON.parse(params);
+
+  const handleCarIn = async (ParkingTransactionId) => {
+    try {
+      await axios({
+        method: 'POST',
+        url: `https://e0e9-182-3-36-177.ap.ngrok.io/checkIn/4`,
+      })
+    } catch (error) {
+      console.log(error, "<<<");
+    }
+  };
+console.log(detailUser, "<<<<<adsao")
   return (
     <SpecifiedView>
       <ScrollView className="h-screen p-6">
@@ -46,7 +58,8 @@ export default function TicketInfo({ route: { params } }) {
             icon="checkbox-marked-circle-outline"
             mode="contained"
             className="bg-[#2F3B6E]"
-            onPress={() => alert("Verification success!")}
+            // onPress={() => alert("Verification success!")}
+            onPress={() => handleCarIn(detailUser.id)}
           >
             Verify
           </Button>
