@@ -6,9 +6,9 @@ import SpecifiedView from "../components/SpecifiedView";
 
 export default function Home({ navigation }) {
   return (
-    <SpecifiedView>
+    <View>
       <ScrollView className="h-screen">
-        <View className="h-[35vh] bg-[#2F3B6E]">
+        <View className="h-[35vh]  bg-[#2F3B6E]">
           <Image
             source={require("../assets/parkirin_logo2.png")}
             className="w-full h-full scale-75"
@@ -30,6 +30,6 @@ export default function Home({ navigation }) {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </SpecifiedView>
+    </View>
   );
 }

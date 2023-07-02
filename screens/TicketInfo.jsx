@@ -11,8 +11,9 @@ export default function TicketInfo({ route: { params } }) {
     try {
       await axios({
         method: 'POST',
-        url: `https://e0e9-182-3-36-177.ap.ngrok.io/checkIn/4`,
+        url: `https://d2c1-182-2-135-173.ap.ngrok.io/checkIn/${ParkingTransactionId}`,
       })
+      alert('Verify Success')
     } catch (error) {
       console.log(error, "<<<");
     }
