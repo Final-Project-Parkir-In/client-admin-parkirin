@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, TouchableOpacity } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import SpecifiedView from "../components/SpecifiedView";
 
@@ -44,7 +44,9 @@ export default function ScannerPage({ navigation }) {
             />
           </View>
         </View>
-        <Button title={"Process"} onPress={() => setScanned(false)} />
+        <View className="justify-center items-center">
+          <TouchableOpacity className="mt-8 p-5 rounded-xl w-[200px] bg-[#D9A14E]" onPress={() => setScanned(false)}><Text className="text-center">SCAN</Text></TouchableOpacity>
+        </View>
       </View>
     </SpecifiedView>
   );
